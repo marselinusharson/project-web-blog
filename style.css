@@ -380,6 +380,9 @@ body.dark .kategory a {
     order: -1;
     justify-items: end;
   }
+  .kategory ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 576px) {
   .header {
@@ -387,5 +390,8 @@ body.dark .kategory a {
       "hero hero"
       "feature-1 feature-1"
       "feature-2 feature-2";
+  }
+  .kategory ul {
+    grid-template-columns: 1fr;
   }
 }
