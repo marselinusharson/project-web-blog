@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 /* ====== colours ========= */
@@ -22,13 +21,7 @@ body {
   position: relative;
   background-color: var(--body-color);
 }
-body .text {
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  margin: 0;
-  justify-content: center;
-  min-height: 100vh;
-}
+
 .text h2 {
   color: var(--nav-color);
 }
@@ -41,13 +34,14 @@ body.dark {
   --search-bar: #242526;
 }
 nav {
+  font-family: "Poppins", sans-serif;
   position: fixed;
   top: 0;
   left: 0;
   height: 70px;
   width: 100%;
   background-color: var(--nav-color);
-  z-index: 100;
+  z-index: 9999;
 }
 
 nav .nav-bar {
@@ -222,34 +216,124 @@ body.dark .search-field i {
   cursor: pointer;
 }
 
-.content {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  background-color: var(--body-color);
+.header {
+  display: grid;
+  grid-template-areas:
+    "hero hero feature-1"
+    "hero hero feature-2";
 }
-.content .article {
-  display: flex;
+.container {
   position: relative;
-  padding: 80px;
-  height: 700px;
-  width: 70%;
-  background-color: red;
+  top: 70px;
+  margin: 10px 10px;
+  display: grid;
+  gap: 6px;
 }
-.article span {
-  display: flex;
-  margin: auto;
+.hero {
+  grid-area: hero;
+  min-height: 350px;
+  background-image: url("img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.hero h2,
+.hero p {
+  display: none;
+}
+.features {
+  padding: 50px;
+  background-color: #000;
+  color: var(--text-color);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+.feature-1 {
+  grid-area: feature-1;
+  background-image: url("img/feacture1.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  box-sizing: border-box;
+}
+body.dark .feature-1 {
+  color: var(--text-color);
+}
+.feature-2 {
+  grid-area: feature-2;
+  background-image: url("img/feacture2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+body.dark .feature-2 {
+  color: var(--text-color);
+}
+.features .price {
+  font-size: 3em;
+  font-weight: 200;
+}
+/* kategory navigation */
+.kategory {
+  order: -1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+.kategory .brand {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 1.3em;
+  color: #333;
+}
+body.dark .brand {
+  color: whitesmoke;
+}
+.kategory ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 5px;
+}
+body.dark .kategory ul li {
+  border: 2px solid whitesmoke;
+}
+.kategory a {
+  display: block;
+  background-color: var(--nav-color);
+  color: var(--text-color);
+  text-decoration: none;
+  text-align: center;
+  padding: 5px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+body.dark .kategory a {
+  color: var(--text-color);
 }
 
-.content .sidebar {
-  display: flex;
-  position: relative;
-  height: 700px;
-  width: 30%;
-  background-color: blue;
-}
-.content .sidebar span {
-  margin: auto;
+/* responsive breakpoints */
+@media (max-width: 1024px) {
+  .kategory {
+    order: inherit;
+    grid-template-columns: 1fr;
+  }
+  .kategory .brand {
+    display: none;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+  .hero h2,
+  .hero p {
+    display: block;
+    color: var(--text-color);
+    padding: 5px;
+    margin-bottom: 5px;
+  }
 }
 @media (max-width: 768px) {
   nav .nav-bar .sidebarOpen {
@@ -292,21 +376,16 @@ body.dark .search-field i {
     display: block;
     margin-top: 20px;
   }
+  .kategory {
+    order: -1;
+    justify-items: end;
+  }
 }
-
 @media (max-width: 576px) {
-  .content {
-    flex-direction: column;
-  }
-  .content .sidebar {
-    width: 100%;
-    height: 200px;
-  }
-  .content .article {
-    width: 100%;
-    order: 2;
-  }
-  nav .nav-bar .logo a {
-    text-align: center;
+  .header {
+    grid-template-areas:
+      "hero hero"
+      "feature-1 feature-1"
+      "feature-2 feature-2";
   }
 }
