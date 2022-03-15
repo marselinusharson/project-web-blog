@@ -338,6 +338,8 @@ body.dark .kategory a {
   font-size: 0.8em;
 }
 
+/* footer */
+
 /* responsive breakpoints */
 @media (max-width: 1024px) {
   .kategory {
@@ -361,6 +363,7 @@ body.dark .kategory a {
     margin-bottom: 5px;
   }
 }
+
 @media (max-width: 768px) {
   nav .nav-bar .sidebarOpen {
     display: block;
