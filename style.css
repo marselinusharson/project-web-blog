@@ -375,9 +375,12 @@ body.dark .kategory a {
     left: -100%;
     top: 0;
     padding: 20px;
-    background-color: var(--side-color);
+    background-color: var(--nav-color);
     z-index: 100;
     transition: all 0.4s ease;
+  }
+  body.dark .menu {
+    background-color: var(--side-color);
   }
   nav.active .menu {
     left: -0%;
