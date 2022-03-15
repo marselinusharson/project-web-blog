@@ -381,7 +381,8 @@ body.dark .kategory a {
     justify-items: end;
   }
   .kategory ul {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    display: none;
   }
 }
 @media (max-width: 576px) {
@@ -393,5 +394,14 @@ body.dark .kategory a {
   }
   .kategory ul {
     grid-template-columns: 1fr;
+  }
+  nav .nav-bar .logo a {
+    display: none;
+  }
+  .kategory ul {
+    display: none;
+  }
+  .kategory ul {
+    display: none;
   }
 }
