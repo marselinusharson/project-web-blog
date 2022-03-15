@@ -391,7 +391,29 @@ body.dark .kategory a {
     display: none;
   }
   li.active .kategory-list li a::before {
-    opacity: 0;
+    display: none;
+  }
+  li.active .kategory-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    position: absolute;
+    right: 200px;
+  }
+  li.active .kategory-list li {
+    display: grid;
+    align-items: center;
+    align-items: center;
+  }
+  li.active .kategory-list li a {
+    padding: -5px;
+  }
+  li.active .kategory-list li a:hover {
+    background: rgb(201, 195, 195);
+  }
+  body.dark li.active .kategory-list li a:hover {
+    background: #000;
+    border-radius: 3px;
   }
 }
 @media (max-width: 576px) {
