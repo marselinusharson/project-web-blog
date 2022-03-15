@@ -5,8 +5,7 @@ const searchToggle = document.querySelector(".searchToggle");
 const sidebarClose = document.querySelector(".sidebarClose");
 const sidebarOpen = document.querySelector(".sidebarOpen");
 const navLinks = document.getElementById("nav-links");
-const kategory = document.createElement("li");
-const text = document.createElement("a");
+const kategoryList = document.getElementById("kategory-list");
 
 //mode gelap dan mode terang
 modeToggle.addEventListener("click", () => {
@@ -31,12 +30,22 @@ sidebarClose.addEventListener("click", (e) => {
   }
 });
 
+const kategory = document.createElement("li");
+const text = document.createElement("a");
 function tambahList() {
   text.textContent = "Category";
   kategory.appendChild(text);
   navLinks.appendChild(kategory);
+  kategory.classList.add("active");
 }
 function hapusList() {
   kategory.removeChild(kategory.lastChild);
   navLinks.removeChild(navLinks.lastChild);
 }
+kategory.addEventListener("mouseover", () => {
+  kategory.appendChild(kategoryList);
+  kategory.classList.replace("pasif", "active");
+});
+kategory.addEventListener("mouseout", () => {
+  kategory.classList.replace("active", "pasif");
+});

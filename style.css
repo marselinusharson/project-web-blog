@@ -384,6 +384,15 @@ body.dark .kategory a {
     grid-template-columns: 1fr;
     display: none;
   }
+  li.active .kategory-list {
+    display: grid;
+  }
+  li.pasif .kategory-list {
+    display: none;
+  }
+  li.active .kategory-list li a::before {
+    opacity: 0;
+  }
 }
 @media (max-width: 576px) {
   .header {
